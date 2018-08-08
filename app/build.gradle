@@ -1,0 +1,84 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.nytimes.febyelsa.nytimesapp"
+        minSdkVersion 22
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    final SUPPORT_LIBRARY_VERSION = '28.0.0-alpha3'
+    final ARCHITECTURE_COMPONENT_VERSION = '1.1.1'
+    final RETROFIT_VERSION = '2.3.0'
+    final DAGGER_VERSION = '2.15'
+    final ROOM_VERSION = '1.1.1'
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // Android Support Library dependecies
+    implementation "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
+    implementation "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION"
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.6.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+
+
+    // RxJava / RxAndroid
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.10'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+
+    // Dagger 2
+    implementation "com.google.dagger:dagger:$DAGGER_VERSION"
+    implementation "com.google.dagger:dagger-android-support:$DAGGER_VERSION"
+    annotationProcessor "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$DAGGER_VERSION"
+    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
+
+    // Android Architecture Components
+    implementation "android.arch.lifecycle:extensions:$ARCHITECTURE_COMPONENT_VERSION"
+    implementation "android.arch.lifecycle:common-java8:$ARCHITECTURE_COMPONENT_VERSION"
+    implementation "android.arch.lifecycle:reactivestreams:$ARCHITECTURE_COMPONENT_VERSION"
+
+    // Room SQLite for data persistence
+    implementation "android.arch.persistence.room:runtime:$ROOM_VERSION"
+    annotationProcessor "android.arch.persistence.room:compiler:$ROOM_VERSION"
+
+    implementation "android.arch.persistence.room:rxjava2:$ROOM_VERSION"
+
+    implementation "com.squareup.okhttp3:mockwebserver:3.8.1"
+
+    androidTestImplementation 'com.android.support:support-annotations:27.1.1'
+    implementation 'org.jsoup:jsoup:1.10.2'
+
+}

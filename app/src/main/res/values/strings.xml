@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NYTimesApp</string>
+    <string name="search">Search</string>
+    <string name="msg_failed">Failed to load articles</string>
+</resources>
