@@ -2,7 +2,6 @@ package com.nytimes.febyelsa.nytimesapp.di;
 
 import android.app.Application;
 
-import com.nytimes.febyelsa.nytimesapp.NYTimesApplication;
 import com.nytimes.febyelsa.nytimesapp.repository.BaseRepository;
 import com.nytimes.febyelsa.nytimesapp.repository.Repository;
 import com.nytimes.febyelsa.nytimesapp.viewmodel.ArticlesDetailsViewModel;
@@ -23,7 +22,6 @@ public interface AppComponent {
 
     void inject(ArticlesViewModel articlesViewModel);
     void inject(ArticlesDetailsViewModel articlesViewModel);
-    void inject(Application application);
     void inject(BaseRepository baseRepository);
 
     @Component.Builder
